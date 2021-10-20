@@ -28,25 +28,6 @@ app.use('/articles', articles);
 
 app.use('/fish', fish);
 
-const requestTime = function (req, res, next) {
-    req.requestTime = Date.now();
-    next();
-};
-
-app.use(requestTime);
-
-
-app.get('/', function (req, res) {
-    let responseText = 'Hello Get!';
-    responseText += 'Requested at: ' + req.requestTime + '';
-    res.send(responseText);
-});
-
-app.post('/', function (req, res) {
-    let responseText = 'Hello';
-    res.send(responseText);
-});
-
 app.listen(3001);
 
 
